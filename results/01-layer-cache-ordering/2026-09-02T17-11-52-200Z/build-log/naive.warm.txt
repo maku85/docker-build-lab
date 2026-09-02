@@ -26,24 +26,23 @@
 #7 DONE 0.1s
 
 #8 [4/4] RUN npm install --omit=dev --no-audit --no-fund
-#8 0.683 
-#8 0.683 added 3 packages in 489ms
-#8 0.684 npm notice
-#8 0.684 npm notice New major version of npm available! 10.9.8 -> 12.0.2
-#8 0.684 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
-#8 0.684 npm notice To update run: npm install -g npm@12.0.2
-#8 0.684 npm notice
+#8 0.645 npm notice
+#8 0.645 npm notice New major version of npm available! 10.9.8 -> 12.0.2
+#8 0.645 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+#8 0.645 npm notice To update run: npm install -g npm@12.0.2
+#8 0.645 npm notice
+#8 0.646 
+#8 0.646 added 3 packages in 452ms
 #8 DONE 0.8s
 
 #9 exporting to image
 #9 exporting layers
 #9 exporting layers 0.2s done
-#9 exporting manifest sha256:7586f54aebc4fc25fefb5b6a631ae986d2a2ec27ca3c7e584a85b45099a8c519
-#9 exporting manifest sha256:7586f54aebc4fc25fefb5b6a631ae986d2a2ec27ca3c7e584a85b45099a8c519 0.0s done
-#9 exporting config sha256:1e3857d32361963528c751f5040b995a065fb24247b00cc411b8a3d5380d73b8 0.0s done
-#9 exporting attestation manifest sha256:a080cd179e36636889911a029eb4abd127fcc85246e9a9f9239bf11a627a23b7 0.0s done
-#9 exporting manifest list sha256:306b38ceaae101b01d605a00947c5503a09bba1740e451596605286570eb46c4 0.0s done
-#9 naming to docker.io/library/dbl-01-naive:run
+#9 exporting manifest sha256:63bfdbde0ebc665821ef17c79ec74840f8035d518e3c9c0b5ae7190802986c49
+#9 exporting manifest sha256:63bfdbde0ebc665821ef17c79ec74840f8035d518e3c9c0b5ae7190802986c49 0.0s done
+#9 exporting config sha256:0701ae487719ac866cd0d739ef03dbcf344f0845132cf7fb47bf7dd95f323f1f 0.0s done
+#9 exporting attestation manifest sha256:73af19f17abb2e85fdd51aceb1da1182c60e2728f4a639301d5c4043d233625f 0.0s done
+#9 exporting manifest list sha256:8640a5bc8693e0c7c495227cf4377fb8de69f9f3848225aeb8d6088a431e4f3e 0.0s done
 #9 naming to docker.io/library/dbl-01-naive:run done
 #9 unpacking to docker.io/library/dbl-01-naive:run 0.1s done
 #9 DONE 0.4s

@@ -5,7 +5,7 @@
 #1 DONE 0.0s
 
 #2 [internal] load metadata for docker.io/library/node:22-alpine
-#2 DONE 0.2s
+#2 DONE 0.3s
 
 #3 [internal] load .dockerignore
 #3 transferring context: 65B done
@@ -19,10 +19,10 @@
 #5 resolve docker.io/library/node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32 0.1s done
 #5 DONE 0.1s
 
-#6 [2/5] WORKDIR /app
+#6 [3/5] COPY package.json ./
 #6 CACHED
 
-#7 [3/5] COPY package.json ./
+#7 [2/5] WORKDIR /app
 #7 CACHED
 
 #8 [4/5] RUN npm install --omit=dev --no-audit --no-fund
@@ -33,11 +33,11 @@
 
 #10 exporting to image
 #10 exporting layers 0.1s done
-#10 exporting manifest sha256:7d7e7a2882e395d375a945ee336d0009a77fb85493cf60a9a6ddd97324e910b6
-#10 exporting manifest sha256:7d7e7a2882e395d375a945ee336d0009a77fb85493cf60a9a6ddd97324e910b6 0.0s done
-#10 exporting config sha256:21fa01eaf53512fc0e3a589859bc785c2916170ecab981624fb7e3c7416efb67 0.0s done
-#10 exporting attestation manifest sha256:987cadee5ad6b65ebed88e3f1e5be491f78ea5055538b21a4114954b8f8b7655 0.0s done
-#10 exporting manifest list sha256:442c156fa3ce8699cfbff8e049cd4e4d86210e794056d3833802d38796043008 0.0s done
+#10 exporting manifest sha256:cbd9d15121dbb78fe64d63abe2a65f3cd64d6ebc42b21b7cf9b46b93a5f19413
+#10 exporting manifest sha256:cbd9d15121dbb78fe64d63abe2a65f3cd64d6ebc42b21b7cf9b46b93a5f19413 0.0s done
+#10 exporting config sha256:30e8fa5e93ace6c5fddc369c3668e9a90d1e4d9a97f4e120f15c758b965f89ec 0.0s done
+#10 exporting attestation manifest sha256:b4bc93bf02b1f9557868bb8ad01f19bb0f36726fd35d6863e7fb9e2b471810bc 0.0s done
+#10 exporting manifest list sha256:4a717e1f719ca1cdcd9f5e42371f7379a2ef993fc02d32c6bafccf0b2c005f0c 0.0s done
 #10 naming to docker.io/library/dbl-01-ordered:run done
 #10 unpacking to docker.io/library/dbl-01-ordered:run 0.0s done
-#10 DONE 0.3s
+#10 DONE 0.2s

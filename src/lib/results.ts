@@ -6,6 +6,8 @@
 import { cpSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 
+import { scrub } from "./scrub.js";
+
 const RESULTS_ROOT = new URL("../../results/", import.meta.url).pathname;
 
 export interface RunPaths {
@@ -35,10 +37,11 @@ export function createRunDir(experiment: string, stamp = runStamp()): RunPaths {
 
 export function writeJson(path: string, value: unknown): void {
   mkdirSync(dirname(path), { recursive: true });
-  writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+  writeFileSync(path, `${scrub(JSON.stringify(value, null, 2))}\n`, "utf8");
 }
 
 export function writeText(path: string, text: string): void {
   mkdirSync(dirname(path), { recursive: true });
-  writeFileSync(path, text.endsWith("\n") ? text : `${text}\n`, "utf8");
+  const body = scrub(text);
+  writeFileSync(path, body.endsWith("\n") ? body : `${body}\n`, "utf8");
 }
