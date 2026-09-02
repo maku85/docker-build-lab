@@ -1,0 +1,117 @@
+{
+  "experiment": "02-invalidation-cascade",
+  "runAt": "2026-09-02T16:41:12.996Z",
+  "env": {
+    "dockerVersion": "29.4.0",
+    "buildxVersion": "v0.33.0",
+    "buildkitDriver": "docker",
+    "node": "v24.16.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpuModel": "Apple M3 Pro",
+    "cpuCount": 12,
+    "totalMemGB": 18,
+    "capturedAt": "2026-09-02T16:40:26.031Z"
+  },
+  "allMatch": true,
+  "points": [
+    {
+      "n": 4,
+      "k": 1,
+      "rebuilt": 4,
+      "expected": 4,
+      "match": true
+    },
+    {
+      "n": 4,
+      "k": 2,
+      "rebuilt": 3,
+      "expected": 3,
+      "match": true
+    },
+    {
+      "n": 4,
+      "k": 4,
+      "rebuilt": 1,
+      "expected": 1,
+      "match": true
+    },
+    {
+      "n": 8,
+      "k": 1,
+      "rebuilt": 8,
+      "expected": 8,
+      "match": true
+    },
+    {
+      "n": 8,
+      "k": 2,
+      "rebuilt": 7,
+      "expected": 7,
+      "match": true
+    },
+    {
+      "n": 8,
+      "k": 3,
+      "rebuilt": 6,
+      "expected": 6,
+      "match": true
+    },
+    {
+      "n": 8,
+      "k": 4,
+      "rebuilt": 5,
+      "expected": 5,
+      "match": true
+    },
+    {
+      "n": 8,
+      "k": 5,
+      "rebuilt": 4,
+      "expected": 4,
+      "match": true
+    },
+    {
+      "n": 8,
+      "k": 6,
+      "rebuilt": 3,
+      "expected": 3,
+      "match": true
+    },
+    {
+      "n": 8,
+      "k": 7,
+      "rebuilt": 2,
+      "expected": 2,
+      "match": true
+    },
+    {
+      "n": 8,
+      "k": 8,
+      "rebuilt": 1,
+      "expected": 1,
+      "match": true
+    },
+    {
+      "n": 16,
+      "k": 1,
+      "rebuilt": 16,
+      "expected": 16,
+      "match": true
+    },
+    {
+      "n": 16,
+      "k": 8,
+      "rebuilt": 9,
+      "expected": 9,
+      "match": true
+    },
+    {
+      "n": 16,
+      "k": 16,
+      "rebuilt": 1,
+      "expected": 1,
+      "match": true
+    }
+  ]
+}

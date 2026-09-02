@@ -1,0 +1,80 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 719B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/alpine:3
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [ 1/18] FROM docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+#4 resolve docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b 0.0s done
+#4 DONE 0.0s
+
+#5 [ 3/18] RUN echo "mtkbo71t n16 step 1" > ./s1
+#5 CACHED
+
+#6 [11/18] RUN echo "mtkbo71t n16 step 9" > ./s9
+#6 CACHED
+
+#7 [ 6/18] RUN echo "mtkbo71t n16 step 4" > ./s4
+#7 CACHED
+
+#8 [13/18] RUN echo "mtkbo71t n16 step 11" > ./s11
+#8 CACHED
+
+#9 [16/18] RUN echo "mtkbo71t n16 step 14" > ./s14
+#9 CACHED
+
+#10 [14/18] RUN echo "mtkbo71t n16 step 12" > ./s12
+#10 CACHED
+
+#11 [ 2/18] WORKDIR /w-mtkbo71t-16
+#11 CACHED
+
+#12 [10/18] RUN echo "mtkbo71t n16 step 8" > ./s8
+#12 CACHED
+
+#13 [ 5/18] RUN echo "mtkbo71t n16 step 3" > ./s3
+#13 CACHED
+
+#14 [12/18] RUN echo "mtkbo71t n16 step 10" > ./s10
+#14 CACHED
+
+#15 [ 4/18] RUN echo "mtkbo71t n16 step 2" > ./s2
+#15 CACHED
+
+#16 [ 7/18] RUN echo "mtkbo71t n16 step 5" > ./s5
+#16 CACHED
+
+#17 [ 9/18] RUN echo "mtkbo71t n16 step 7" > ./s7
+#17 CACHED
+
+#18 [ 8/18] RUN echo "mtkbo71t n16 step 6" > ./s6
+#18 CACHED
+
+#19 [15/18] RUN echo "mtkbo71t n16 step 13" > ./s13
+#19 CACHED
+
+#20 [17/18] RUN echo "mtkbo71t n16 step 15" > ./s15
+#20 CACHED
+
+#21 [18/18] RUN echo "mtkbo71t n16 step 16 changed" > ./s16
+#21 DONE 0.2s
+
+#22 exporting to image
+#22 exporting layers 0.1s done
+#22 exporting manifest sha256:be6457f18594e1664d925940f7375f690bca3599dbdc2e15d547b6791e9047be
+#22 exporting manifest sha256:be6457f18594e1664d925940f7375f690bca3599dbdc2e15d547b6791e9047be 0.0s done
+#22 exporting config sha256:5c716fa07c4dfe20d7d1c756c21067f88954a9d525b61ec6ac5fa0a4744d8aff 0.0s done
+#22 exporting attestation manifest sha256:cb7c1e4e7b347e4f713b1837324ebeb7be19558e5c77fa2814a5fb42613dde1d 0.0s done
+#22 exporting manifest list sha256:c69f524fd7a590d6dd3800b72194c8e994c4095b641919f5fd336b4ef1937ec3 0.0s done
+#22 naming to docker.io/library/dbl-02-n16:run
+#22 naming to docker.io/library/dbl-02-n16:run done
+#22 unpacking to docker.io/library/dbl-02-n16:run
+#22 unpacking to docker.io/library/dbl-02-n16:run 0.2s done
+#22 DONE 0.5s

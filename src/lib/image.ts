@@ -22,24 +22,19 @@ function exec(args: string[]): string {
 }
 
 export function imageInfo(tag: string): ImageInfo | null {
-  let sizeRaw: string;
+  // `docker image inspect .Size` is unreliable for buildx images built with
+  // attestations (it does not sum the platform layers). Prefer the sum of
+  // `docker history` layer sizes; fall back to `.Size`.
+  let inspectSize = 0;
   try {
-    sizeRaw = exec(["image", "inspect", tag, "--format", "{{.Size}}"]).trim();
+    inspectSize = Number(exec(["image", "inspect", tag, "--format", "{{.Size}}"]).trim()) || 0;
   } catch {
     return null;
   }
-  const totalBytes = Number(sizeRaw) || 0;
 
   const layers: ImageLayer[] = [];
   try {
-    // one JSON object per line
-    const hist = exec([
-      "history",
-      tag,
-      "--no-trunc",
-      "--format",
-      "{{json .}}",
-    ]);
+    const hist = exec(["history", tag, "--no-trunc", "--format", "{{json .}}"]);
     for (const line of hist.trim().split("\n")) {
       if (!line.trim()) continue;
       const row = JSON.parse(line) as { CreatedBy?: string; Size?: string };
@@ -49,12 +44,13 @@ export function imageInfo(tag: string): ImageInfo | null {
       });
     }
   } catch {
-    // history can fail for some base images; total size is still useful
+    // history can fail for some base images
   }
 
+  const historySum = layers.reduce((n, l) => n + l.sizeBytes, 0);
   return {
     tag,
-    totalBytes,
+    totalBytes: historySum > 0 ? historySum : inspectSize,
     layers,
     weightyLayers: layers.filter((l) => l.sizeBytes > 0).length,
   };

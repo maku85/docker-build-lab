@@ -1,0 +1,49 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 152B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:22-alpine
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 65B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32
+#4 resolve docker.io/library/node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 217B done
+#5 DONE 0.0s
+
+#6 [2/4] WORKDIR /app
+#6 CACHED
+
+#7 [3/4] COPY . .
+#7 DONE 0.1s
+
+#8 [4/4] RUN npm install --omit=dev --no-audit --no-fund
+#8 0.683 
+#8 0.683 added 3 packages in 489ms
+#8 0.684 npm notice
+#8 0.684 npm notice New major version of npm available! 10.9.8 -> 12.0.2
+#8 0.684 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+#8 0.684 npm notice To update run: npm install -g npm@12.0.2
+#8 0.684 npm notice
+#8 DONE 0.8s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.2s done
+#9 exporting manifest sha256:7586f54aebc4fc25fefb5b6a631ae986d2a2ec27ca3c7e584a85b45099a8c519
+#9 exporting manifest sha256:7586f54aebc4fc25fefb5b6a631ae986d2a2ec27ca3c7e584a85b45099a8c519 0.0s done
+#9 exporting config sha256:1e3857d32361963528c751f5040b995a065fb24247b00cc411b8a3d5380d73b8 0.0s done
+#9 exporting attestation manifest sha256:a080cd179e36636889911a029eb4abd127fcc85246e9a9f9239bf11a627a23b7 0.0s done
+#9 exporting manifest list sha256:306b38ceaae101b01d605a00947c5503a09bba1740e451596605286570eb46c4 0.0s done
+#9 naming to docker.io/library/dbl-01-naive:run
+#9 naming to docker.io/library/dbl-01-naive:run done
+#9 unpacking to docker.io/library/dbl-01-naive:run 0.1s done
+#9 DONE 0.4s

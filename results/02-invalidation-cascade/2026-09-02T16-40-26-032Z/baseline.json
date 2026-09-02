@@ -1,0 +1,46 @@
+{
+  "experiment": "02-invalidation-cascade",
+  "env": {
+    "dockerVersion": "29.4.0",
+    "buildxVersion": "v0.33.0",
+    "buildkitDriver": "docker",
+    "node": "v24.16.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpuModel": "Apple M3 Pro",
+    "cpuCount": 12,
+    "totalMemGB": 18,
+    "capturedAt": "2026-09-02T16:40:26.031Z"
+  },
+  "chains": [
+    {
+      "n": 4,
+      "positions": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "n": 8,
+      "positions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "n": 16,
+      "positions": [
+        1,
+        8,
+        16
+      ]
+    }
+  ]
+}

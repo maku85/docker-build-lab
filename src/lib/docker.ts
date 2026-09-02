@@ -30,10 +30,42 @@ export interface BuildRun {
   buildSteps: BuildStep[];
   cachedCount: number;
   rebuiltCount: number;
+  /** Bytes reported for `[internal] load build context`, or null. */
+  contextBytes: number | null;
+}
+
+const SIZE_UNITS: Record<string, number> = {
+  B: 1,
+  kB: 1000,
+  MB: 1000 ** 2,
+  GB: 1000 ** 3,
+  KB: 1024,
+  MiB: 1024 ** 2,
+  GiB: 1024 ** 3,
+};
+
+function parseHumanSize(text: string): number {
+  const m = /^([\d.]+)\s*([A-Za-z]+)$/.exec(text.trim());
+  return m ? Math.round(Number(m[1]) * (SIZE_UNITS[m[2] as string] ?? 1)) : 0;
+}
+
+// BuildKit labels both the `.dockerignore` load and the build-context load
+// `transferring context:`. Pick the one under `[internal] load build context`.
+const LOAD_CONTEXT_ID = /^#(\d+)\s+\[internal\] load build context$/m;
+function contextTransferBytes(output: string): number | null {
+  const idMatch = LOAD_CONTEXT_ID.exec(output);
+  if (!idMatch) return null;
+  const xfer = new RegExp(
+    `^#${idMatch[1]}\\s+transferring context:\\s+([\\d.]+\\s*[A-Za-z]+)`,
+    "m",
+  ).exec(output);
+  return xfer ? parseHumanSize(xfer[1] as string) : null;
 }
 
 const STEP_HEAD = /^#(\d+)\s+(\[[^\]]*\][^\n]*)$/;
-const STEP_INDEX = /^\[(\d+\/\d+)\]\s+(.*)$/;
+// BuildKit right-pads the step number once the total reaches two digits:
+// `[ 3/10]`. Tolerate the whitespace inside the brackets.
+const STEP_INDEX = /^\[\s*(\d+)\/(\d+)\s*\]\s+(.*)$/;
 const STEP_DONE = /^#(\d+)\s+DONE\s+([\d.]+)s(?:\s+done)?$/;
 const STEP_CACHED = /^#(\d+)\s+CACHED$/;
 const STEP_ERROR = /^#(\d+)\s+ERROR/;
@@ -57,8 +89,8 @@ function parseSteps(output: string): BuildStep[] {
         const text = (head[2] as string).trim();
         const bracket = STEP_INDEX.exec(text);
         if (bracket) {
-          s.index = bracket[1] as string;
-          s.name = (bracket[2] as string).trim();
+          s.index = `${bracket[1]}/${bracket[2]}`;
+          s.name = (bracket[3] as string).trim();
         } else {
           s.name = text;
         }
@@ -121,5 +153,6 @@ export function runBuild(ctx: BuildContext, opts: RunBuildOptions): BuildRun {
     buildSteps,
     cachedCount: buildSteps.filter((s) => s.cached).length,
     rebuiltCount: buildSteps.filter((s) => !s.cached && !s.error).length,
+    contextBytes: contextTransferBytes(output),
   };
 }

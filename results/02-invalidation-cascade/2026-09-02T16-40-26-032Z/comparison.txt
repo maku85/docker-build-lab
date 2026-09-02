@@ -1,0 +1,29 @@
+Experiment 02-invalidation-cascade
+
+Environment
+  Docker            29.4.0
+  buildx            v0.33.0 (docker)
+  Node              v24.16.0
+  Platform          darwin/arm64
+  CPU               Apple M3 Pro (12 threads)
+
+Change RUN step k of n; count rebuilt RUN steps
+
+n   k   rebuilt  expected (n-k+1)  match
+--  --  -------  ----------------  -----
+4   1   4        4                 ok
+4   2   3        3                 ok
+4   4   1        1                 ok
+8   1   8        8                 ok
+8   2   7        7                 ok
+8   3   6        6                 ok
+8   4   5        5                 ok
+8   5   4        4                 ok
+8   6   3        3                 ok
+8   7   2        2                 ok
+8   8   1        1                 ok
+16  1   16       16                ok
+16  8   9        9                 ok
+16  16  1        1                 ok
+
+All positions matched: a RUN miss rebuilds exactly itself and every step below.

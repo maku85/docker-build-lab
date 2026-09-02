@@ -1,0 +1,18 @@
+Experiment 05-dockerignore-context
+
+Environment
+  Docker            29.4.0
+  buildx            v0.33.0 (docker)
+  Node              v24.16.0
+  Platform          darwin/arm64
+  CPU               Apple M3 Pro (12 threads)
+
+node_modules (2 MB) + logs (3 MB) alongside a tiny real file
+
+variant   context transfer  image size  COPY after ignorable change
+--------  ----------------  ----------  ---------------------------
+noignore  5.0 MB            15.3 MB     re-run
+ignored   146 B             10.3 MB     CACHED
+
+Expect: `.dockerignore` cuts the context to a few kB and keeps `COPY . .`
+cached when only an ignored file changed; without it, both get worse.

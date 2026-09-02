@@ -1,0 +1,3 @@
+node_modules/pkg/bundle.js  ~2 MB
+logs/app.log  ~3 MB
+(padding, not committed)

@@ -1,6 +1,6 @@
 {
   "experiment": "01-layer-cache-ordering",
-  "runAt": "2026-09-02T15:33:31.172Z",
+  "runAt": "2026-09-02T16:44:30.822Z",
   "env": {
     "dockerVersion": "29.4.0",
     "buildxVersion": "v0.33.0",
@@ -11,31 +11,31 @@
     "cpuModel": "Apple M3 Pro",
     "cpuCount": 12,
     "totalMemGB": 18,
-    "capturedAt": "2026-09-02T15:33:19.872Z"
+    "capturedAt": "2026-09-02T16:44:20.122Z"
   },
   "results": [
     {
       "variant": "naive",
-      "imageBytes": 58668582,
+      "imageBytes": 171556400,
       "installCachedWarm": false,
       "cold": {
         "exitCode": 0,
-        "wallMs": 3611,
+        "wallMs": 4466,
         "buildSteps": [
           {
-            "id": "4",
+            "id": "5",
             "index": "1/4",
             "name": "FROM docker.io/library/node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32",
             "cached": false,
-            "durationS": 0,
+            "durationS": 0.2,
             "error": false
           },
           {
-            "id": "5",
+            "id": "6",
             "index": "2/4",
             "name": "WORKDIR /app",
-            "cached": true,
-            "durationS": 0,
+            "cached": false,
+            "durationS": 0.1,
             "error": false
           },
           {
@@ -43,7 +43,7 @@
             "index": "3/4",
             "name": "COPY . .",
             "cached": false,
-            "durationS": 0.2,
+            "durationS": 0.1,
             "error": false
           },
           {
@@ -51,14 +51,14 @@
             "index": "4/4",
             "name": "RUN npm install --omit=dev --no-audit --no-fund",
             "cached": false,
-            "durationS": 1.6,
+            "durationS": 1.4,
             "error": false
           }
         ]
       },
       "warm": {
         "exitCode": 0,
-        "wallMs": 2867,
+        "wallMs": 2248,
         "cachedCount": 1,
         "rebuiltCount": 3,
         "buildSteps": [
@@ -91,7 +91,7 @@
             "index": "4/4",
             "name": "RUN npm install --omit=dev --no-audit --no-fund",
             "cached": false,
-            "durationS": 1.1,
+            "durationS": 0.8,
             "error": false
           }
         ]
@@ -99,18 +99,18 @@
     },
     {
       "variant": "ordered",
-      "imageBytes": 58669299,
+      "imageBytes": 171556390,
       "installCachedWarm": true,
       "cold": {
         "exitCode": 0,
-        "wallMs": 2719,
+        "wallMs": 2503,
         "buildSteps": [
           {
             "id": "5",
             "index": "1/5",
             "name": "FROM docker.io/library/node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32",
             "cached": false,
-            "durationS": 0,
+            "durationS": 0.1,
             "error": false
           },
           {
@@ -134,7 +134,7 @@
             "index": "4/5",
             "name": "RUN npm install --omit=dev --no-audit --no-fund",
             "cached": false,
-            "durationS": 1,
+            "durationS": 0.9,
             "error": false
           },
           {
@@ -149,7 +149,7 @@
       },
       "warm": {
         "exitCode": 0,
-        "wallMs": 1493,
+        "wallMs": 1247,
         "cachedCount": 3,
         "rebuiltCount": 2,
         "buildSteps": [
@@ -190,7 +190,7 @@
             "index": "5/5",
             "name": "COPY . .",
             "cached": false,
-            "durationS": 0.2,
+            "durationS": 0.1,
             "error": false
           }
         ]

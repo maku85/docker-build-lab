@@ -44,8 +44,8 @@ Docker 29.4.0, buildx 0.33.0, Apple M3 Pro. **Confirmed.**
 
 | variant | warm `npm install` | warm cached | warm rebuilt | image |
 | --- | --- | --- | --- | --- |
-| `naive` | re-run (1.2 s) | 1 / 4 | 3 | 58.7 MB |
-| `ordered` | CACHED | 3 / 5 | 2 | 58.7 MB |
+| `naive` | re-run | 1 / 4 | 3 | 171.6 MB |
+| `ordered` | CACHED | 3 / 5 | 2 | 171.6 MB |
 
 - `naive`: touching `index.js` busts `COPY . .`, and every step below a busted
   step rebuilds, so `RUN npm install` re-runs. Only `WORKDIR` stays cached.

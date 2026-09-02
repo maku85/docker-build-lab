@@ -1,0 +1,56 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 392B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/alpine:3
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [ 1/10] FROM docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+#4 resolve docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b 0.0s done
+#4 DONE 0.0s
+
+#5 [ 2/10] WORKDIR /w-mtkbo71t-8
+#5 CACHED
+
+#6 [ 3/10] RUN echo "mtkbo71t n8 step 1" > ./s1
+#6 CACHED
+
+#7 [ 4/10] RUN echo "mtkbo71t n8 step 2 changed" > ./s2
+#7 DONE 0.2s
+
+#8 [ 5/10] RUN echo "mtkbo71t n8 step 3" > ./s3
+#8 DONE 0.2s
+
+#9 [ 6/10] RUN echo "mtkbo71t n8 step 4" > ./s4
+#9 DONE 0.2s
+
+#10 [ 7/10] RUN echo "mtkbo71t n8 step 5" > ./s5
+#10 DONE 0.2s
+
+#11 [ 8/10] RUN echo "mtkbo71t n8 step 6" > ./s6
+#11 DONE 0.2s
+
+#12 [ 9/10] RUN echo "mtkbo71t n8 step 7" > ./s7
+#12 DONE 0.2s
+
+#13 [10/10] RUN echo "mtkbo71t n8 step 8" > ./s8
+#13 DONE 0.2s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 0.5s done
+#14 exporting manifest sha256:3d5162d7439121c4b4de17531b69ffcb01be01882c7da0757c42daa69a80f0f1
+#14 exporting manifest sha256:3d5162d7439121c4b4de17531b69ffcb01be01882c7da0757c42daa69a80f0f1 0.0s done
+#14 exporting config sha256:6dafa55ebd5d18f99ed12f2810a4998f7e4e6f34e77a68901a1289775a9ebf3f 0.0s done
+#14 exporting attestation manifest sha256:637d834a8e461b65a20e12722b6882c81be995a15f72971b4bf984e12c2c65b1 0.0s done
+#14 exporting manifest list sha256:355b4cad1f025726996977a6e10e79801b42d2e47eea9adfe16d6ed2e2e1962e 0.0s done
+#14 naming to docker.io/library/dbl-02-n8:run done
+#14 unpacking to docker.io/library/dbl-02-n8:run
+#14 unpacking to docker.io/library/dbl-02-n8:run 0.2s done
+#14 DONE 0.7s

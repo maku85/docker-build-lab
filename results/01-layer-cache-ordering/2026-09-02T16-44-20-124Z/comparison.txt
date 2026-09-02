@@ -11,8 +11,8 @@ Rebuild after touching index.js (not package.json)
 
 variant  cold install  warm install  warm cached  warm rebuilt  image size
 -------  ------------  ------------  -----------  ------------  ----------
-naive    1.6s          re-run        1/4          3             58.7 MB
-ordered  1s            CACHED        3/5          2             58.7 MB
+naive    1.4s          re-run        1/4          3             171.6 MB
+ordered  0.9s          CACHED        3/5          2             171.6 MB
 
 Expect: `naive` re-runs npm install on the source change; `ordered` keeps it
 cached and only re-runs the final COPY.

@@ -1,0 +1,37 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 86B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/alpine:3
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 76B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 60B done
+#4 DONE 0.0s
+
+#5 [1/3] FROM docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+#5 resolve docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b 0.1s done
+#5 DONE 0.1s
+
+#6 [2/3] WORKDIR /app
+#6 CACHED
+
+#7 [3/3] COPY . .
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:1231e24b6ab34361906cccfc2a411b12467a3ff041659873263b14a6bc765475 done
+#8 exporting config sha256:47475ae8061f33f116984beb855e5f1a4f4d7892eac7a162c64fdd055d8f15e4 done
+#8 exporting attestation manifest sha256:647223d52bf72d2773a2dd7a43fb6cb44ca366104324d8a0a62ca61905e5291c 0.1s done
+#8 exporting manifest list sha256:183e025ae37b5dd97b85a5a77acea9b8100576e316737cf2420630bafe2a5695
+#8 exporting manifest list sha256:183e025ae37b5dd97b85a5a77acea9b8100576e316737cf2420630bafe2a5695 0.0s done
+#8 naming to docker.io/library/dbl-05-ignored:run done
+#8 unpacking to docker.io/library/dbl-05-ignored:run 0.0s done
+#8 DONE 0.1s

@@ -1,0 +1,30 @@
+{
+  "experiment": "05-dockerignore-context",
+  "runAt": "2026-09-02T16:45:05.106Z",
+  "env": {
+    "dockerVersion": "29.4.0",
+    "buildxVersion": "v0.33.0",
+    "buildkitDriver": "docker",
+    "node": "v24.16.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpuModel": "Apple M3 Pro",
+    "cpuCount": 12,
+    "totalMemGB": 18,
+    "capturedAt": "2026-09-02T16:44:59.941Z"
+  },
+  "results": [
+    {
+      "variant": "noignore",
+      "contextBytes": 5000000,
+      "imageBytes": 15310000,
+      "copyCachedAfterIgnorableChange": false
+    },
+    {
+      "variant": "ignored",
+      "contextBytes": 146,
+      "imageBytes": 10308190,
+      "copyCachedAfterIgnorableChange": true
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 384B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/alpine:3
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [ 1/10] FROM docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+#4 resolve docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b 0.0s done
+#4 DONE 0.0s
+
+#4 [ 1/10] FROM docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+#4 CACHED
+
+#5 [ 2/10] WORKDIR /w-mtkbo71t-8
+#5 DONE 0.1s
+
+#6 [ 3/10] RUN echo "mtkbo71t n8 step 1" > ./s1
+#6 DONE 0.2s
+
+#7 [ 4/10] RUN echo "mtkbo71t n8 step 2" > ./s2
+#7 DONE 0.2s
+
+#8 [ 5/10] RUN echo "mtkbo71t n8 step 3" > ./s3
+#8 DONE 0.2s
+
+#9 [ 6/10] RUN echo "mtkbo71t n8 step 4" > ./s4
+#9 DONE 0.2s
+
+#10 [ 7/10] RUN echo "mtkbo71t n8 step 5" > ./s5
+#10 DONE 0.2s
+
+#11 [ 8/10] RUN echo "mtkbo71t n8 step 6" > ./s6
+#11 DONE 0.2s
+
+#12 [ 9/10] RUN echo "mtkbo71t n8 step 7" > ./s7
+#12 DONE 0.2s
+
+#13 [10/10] RUN echo "mtkbo71t n8 step 8" > ./s8
+#13 DONE 0.2s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 0.4s done
+#14 exporting manifest sha256:23514d215fb15d3c48d11d8071ecb1cf93d7d4d8aa4e179dc9db73ec6f84fd49
+#14 exporting manifest sha256:23514d215fb15d3c48d11d8071ecb1cf93d7d4d8aa4e179dc9db73ec6f84fd49 done
+#14 exporting config sha256:d4bf615cf6fb94ef3390d8f780dc47c1609e26324672df74d49d8f0fc65e486a done
+#14 exporting attestation manifest sha256:01494fad94bf6cd78431cd8f38abb3e02196ed4ab1f0c172471317915e1266d0 0.0s done
+#14 exporting manifest list sha256:c292f6894d926fd160b4226fdc4266afbe35fb05550c89f9c4767ea9580f61c8 0.0s done
+#14 naming to docker.io/library/dbl-02-n8:run done
+#14 unpacking to docker.io/library/dbl-02-n8:run
+#14 unpacking to docker.io/library/dbl-02-n8:run 0.2s done
+#14 DONE 0.7s

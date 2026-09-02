@@ -9,7 +9,9 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "exp:01": "tsx src/experiments/01-layer-cache-ordering/index.ts"
+    "exp:01": "tsx src/experiments/01-layer-cache-ordering/index.ts",
+    "exp:02": "tsx src/experiments/02-invalidation-cascade/index.ts",
+    "exp:05": "tsx src/experiments/05-dockerignore-context/index.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
