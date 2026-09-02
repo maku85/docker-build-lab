@@ -58,8 +58,8 @@ pnpm exp:01
 | --- | --- | --- |
 | [01](src/experiments/01-layer-cache-ordering) | after a source change, does `RUN npm install` stay cached? | **confirmed**. `naive` re-runs it, `ordered` keeps it cached |
 | [02](src/experiments/02-invalidation-cascade) | how far down a `RUN` chain does one changed step invalidate? | **confirmed**. Rebuilt count is exactly `n - k + 1` at every swept position (n up to 16) |
-| [03](src/experiments/03-run-cache-mount) | does `RUN --mount=type=cache` survive a dependency change without a layer? | design only |
-| [04](src/experiments/04-image-size-myths) | does `rm` in a later `RUN` shrink the image? does multi-stage? | design only |
+| [03](src/experiments/03-run-cache-mount) | does `RUN --mount=type=cache` survive a busted `RUN` layer? | **confirmed**. Busted `plain` fails an offline install; `cachemount` still works. Image size unchanged |
+| [04](src/experiments/04-image-size-myths) | does `rm` in a later `RUN` shrink the image? does multi-stage? | **confirmed**. Late `rm` leaves the image 52 MB larger; multi-stage is 255 MB smaller |
 | [05](src/experiments/05-dockerignore-context) | how much does `.dockerignore` change context transfer and cache keys? | **confirmed**. 5.0 MB → 146 B context; shields `COPY . .` from an ignored-file change |
 
 ## Layout

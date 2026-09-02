@@ -1,0 +1,106 @@
+{
+  "experiment": "04-image-size-myths",
+  "runAt": "2026-09-02T16:56:24.301Z",
+  "env": {
+    "dockerVersion": "29.4.0",
+    "buildxVersion": "v0.33.0",
+    "buildkitDriver": "docker",
+    "node": "v24.16.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpuModel": "Apple M3 Pro",
+    "cpuCount": 12,
+    "totalMemGB": 18,
+    "capturedAt": "2026-09-02T16:56:01.316Z"
+  },
+  "sizes": {
+    "inline-clean": 10300000,
+    "late-clean": 62700000,
+    "single-stage": 265304100,
+    "multi-stage": 10304100
+  },
+  "cleanupDelta": 52400000,
+  "stageDelta": 255000000,
+  "layers": {
+    "inline-clean": [
+      {
+        "createdBy": "CMD [\"true\"]",
+        "sizeBytes": 0
+      },
+      {
+        "createdBy": "RUN /bin/sh -c dd if=/dev/zero of=/blob bs=1M count=50 && rm /blob # buildkit",
+        "sizeBytes": 0
+      },
+      {
+        "createdBy": "CMD [\"/bin/sh\"]",
+        "sizeBytes": 0
+      },
+      {
+        "createdBy": "ADD alpine-minirootfs-3.24.1-aarch64.tar.gz / # buildkit",
+        "sizeBytes": 10300000
+      }
+    ],
+    "late-clean": [
+      {
+        "createdBy": "CMD [\"true\"]",
+        "sizeBytes": 0
+      },
+      {
+        "createdBy": "RUN /bin/sh -c rm /blob # buildkit",
+        "sizeBytes": 0
+      },
+      {
+        "createdBy": "RUN /bin/sh -c dd if=/dev/zero of=/blob bs=1M count=50 # buildkit",
+        "sizeBytes": 52400000
+      },
+      {
+        "createdBy": "CMD [\"/bin/sh\"]",
+        "sizeBytes": 0
+      },
+      {
+        "createdBy": "ADD alpine-minirootfs-3.24.1-aarch64.tar.gz / # buildkit",
+        "sizeBytes": 10300000
+      }
+    ],
+    "single-stage": [
+      {
+        "createdBy": "CMD [\"cat\" \"/artifact\"]",
+        "sizeBytes": 0
+      },
+      {
+        "createdBy": "RUN /bin/sh -c gcc --version | head -1 > /artifact # buildkit",
+        "sizeBytes": 4100
+      },
+      {
+        "createdBy": "RUN /bin/sh -c apk add --no-cache build-base # buildkit",
+        "sizeBytes": 255000000
+      },
+      {
+        "createdBy": "CMD [\"/bin/sh\"]",
+        "sizeBytes": 0
+      },
+      {
+        "createdBy": "ADD alpine-minirootfs-3.24.1-aarch64.tar.gz / # buildkit",
+        "sizeBytes": 10300000
+      }
+    ],
+    "multi-stage": [
+      {
+        "createdBy": "CMD [\"cat\" \"/artifact\"]",
+        "sizeBytes": 0
+      },
+      {
+        "createdBy": "COPY /artifact /artifact # buildkit",
+        "sizeBytes": 4100
+      },
+      {
+        "createdBy": "CMD [\"/bin/sh\"]",
+        "sizeBytes": 0
+      },
+      {
+        "createdBy": "ADD alpine-minirootfs-3.24.1-aarch64.tar.gz / # buildkit",
+        "sizeBytes": 10300000
+      }
+    ]
+  }
+}

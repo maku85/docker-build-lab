@@ -1,0 +1,21 @@
+{
+  "experiment": "04-image-size-myths",
+  "env": {
+    "dockerVersion": "29.4.0",
+    "buildxVersion": "v0.33.0",
+    "buildkitDriver": "docker",
+    "node": "v24.16.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpuModel": "Apple M3 Pro",
+    "cpuCount": 12,
+    "totalMemGB": 18,
+    "capturedAt": "2026-09-02T16:56:01.316Z"
+  },
+  "variants": [
+    "inline-clean",
+    "late-clean",
+    "single-stage",
+    "multi-stage"
+  ]
+}

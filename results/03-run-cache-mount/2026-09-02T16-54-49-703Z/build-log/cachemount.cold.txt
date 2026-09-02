@@ -1,0 +1,61 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 276B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.2s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+#3 resolve docker.io/docker/dockerfile:1@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:22-alpine
+#4 DONE 0.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 DONE 0.0s
+
+#7 [stage-0 1/4] FROM docker.io/library/node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32
+#7 resolve docker.io/library/node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32 0.0s done
+#7 DONE 0.1s
+
+#8 [stage-0 2/4] WORKDIR /app
+#8 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 315B done
+#6 DONE 0.0s
+
+#9 [stage-0 3/4] COPY package.json ./
+#9 DONE 0.0s
+
+#10 [stage-0 4/4] RUN --mount=type=cache,id=dbl03-mtkc6pgo,target=/root/.npm sh -c 'echo "bust=$BUST" && npm install --no-audit --no-fund'
+#10 0.182 bust=mtkc6pgo-1
+#10 1.146 npm warn deprecated left-pad@1.3.0: use String.prototype.padStart()
+#10 1.157 
+#10 1.157 added 15 packages in 915ms
+#10 1.158 npm notice
+#10 1.158 npm notice New major version of npm available! 10.9.8 -> 12.0.2
+#10 1.158 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+#10 1.158 npm notice To update run: npm install -g npm@12.0.2
+#10 1.158 npm notice
+#10 DONE 1.3s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.4s done
+#11 exporting manifest sha256:0802cbe6e83f98f9890961122ffe6744c2e1215b4e329aeefd21840b71329f25
+#11 exporting manifest sha256:0802cbe6e83f98f9890961122ffe6744c2e1215b4e329aeefd21840b71329f25 0.0s done
+#11 exporting config sha256:fabb2ff3db665cbd6b8b426b74608ace90b997d7edfab412465adf8fe377ab7b 0.0s done
+#11 exporting attestation manifest sha256:7dace042673361004b1e147f6a6d9f4708e1fee573c5b9d994bf5eabbe45c0bf 0.0s done
+#11 exporting manifest list sha256:8ecdb9ae769be9bc285e89f2d904c3d747300c950b24d01438ebe048f51d4fa1
+#11 exporting manifest list sha256:8ecdb9ae769be9bc285e89f2d904c3d747300c950b24d01438ebe048f51d4fa1 0.0s done
+#11 naming to docker.io/library/dbl-03-cachemount:run done
+#11 unpacking to docker.io/library/dbl-03-cachemount:run 0.1s done
+#11 DONE 0.7s

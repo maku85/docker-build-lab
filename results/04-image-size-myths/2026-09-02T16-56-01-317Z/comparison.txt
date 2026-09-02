@@ -1,0 +1,24 @@
+Experiment 04-image-size-myths
+
+Environment
+  Docker            29.4.0
+  buildx            v0.33.0 (docker)
+  Node              v24.16.0
+  Platform          darwin/arm64
+  CPU               Apple M3 Pro (12 threads)
+
+A. Cleanup: does `rm` in a later RUN shrink the image?
+
+variant       image size  biggest layer
+------------  ----------  -----------------------------------------------------
+inline-clean  10.3 MB     10.3 MB  ADD alpine-minirootfs-3.24.1-aarch64.tar.gz
+late-clean    62.7 MB     52.4 MB  RUN /bin/sh -c dd if=/dev/zero of=/blob bs=1
+late-clean minus inline-clean: 52.4 MB (the later rm did not reclaim the 50 MB blob)
+
+B. Multi-stage: is the final image smaller?
+
+variant       image size  biggest layer
+------------  ----------  ------------------------------------------------------
+single-stage  265.3 MB    255.0 MB  RUN /bin/sh -c apk add --no-cache build-base
+multi-stage   10.3 MB     10.3 MB  ADD alpine-minirootfs-3.24.1-aarch64.tar.gz
+single-stage minus multi-stage: 255.0 MB (the build toolchain never reaches the final image)

@@ -11,6 +11,8 @@
     "typecheck": "tsc --noEmit",
     "exp:01": "tsx src/experiments/01-layer-cache-ordering/index.ts",
     "exp:02": "tsx src/experiments/02-invalidation-cascade/index.ts",
+    "exp:03": "tsx src/experiments/03-run-cache-mount/index.ts",
+    "exp:04": "tsx src/experiments/04-image-size-myths/index.ts",
     "exp:05": "tsx src/experiments/05-dockerignore-context/index.ts"
   },
   "devDependencies": {

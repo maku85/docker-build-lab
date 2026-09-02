@@ -24,10 +24,29 @@ Cold build both. Add one dependency to `package.json`, rebuild both. From
 cache (no "added N packages" download lines for the unchanged deps)? Compare
 final image sizes via `docker history`.
 
-Expected: `cachemount` re-runs the `RUN` layer (its input changed) but `npm`
-reuses the mounted cache for the unchanged packages; the image is no larger than
-`plain` because the mount is not a layer.
+The probe used is stronger than "count re-downloads": cold-build online to
+populate, then bust the `RUN` layer with a changed `ARG` (`package.json`
+untouched) and run `npm install --offline`.
+
+- `plain`: the npm cache lived inside the `RUN` layer, which is now a fresh empty
+  layer, so `--offline` cannot resolve anything and fails.
+- `cachemount`: the cache is the persistent mount, still full, so `--offline`
+  succeeds.
+
+The mount `id` is run-unique so each run starts from an empty mount.
 
 ## Results
 
-Design only.
+Docker 29.4.0, buildx 0.33.0, Apple M3 Pro. **Confirmed.**
+
+| variant | cold | rebuild `npm install --offline` | image size |
+| --- | --- | --- | --- |
+| `plain` | ok | **exit 1** (`ENOTCACHED`) | 172.4 MB |
+| `cachemount` | ok | **ok** (RUN 0.7 s) | 171.7 MB |
+
+- Busting the `RUN` layer wipes `plain`'s npm cache; `cachemount` keeps it in the
+  mount and an offline install still works.
+- Image sizes are equal within noise (172.4 vs 171.7 MB). A `type=cache` mount is
+  not a layer, so it adds nothing to the image.
+
+Raw: `results/03-run-cache-mount/<timestamp>/`.

@@ -63,9 +63,10 @@ function contextTransferBytes(output: string): number | null {
 }
 
 const STEP_HEAD = /^#(\d+)\s+(\[[^\]]*\][^\n]*)$/;
-// BuildKit right-pads the step number once the total reaches two digits:
-// `[ 3/10]`. Tolerate the whitespace inside the brackets.
-const STEP_INDEX = /^\[\s*(\d+)\/(\d+)\s*\]\s+(.*)$/;
+// BuildKit right-pads the step number once the total reaches two digits
+// (`[ 3/10]`) and prefixes a stage name in multi-stage / newer-frontend builds
+// (`[stage-0 4/4]`, `[build 2/3]`). Tolerate both.
+const STEP_INDEX = /^\[\s*(?:[\w.-]+\s+)?(\d+)\/(\d+)\s*\]\s+(.*)$/;
 const STEP_DONE = /^#(\d+)\s+DONE\s+([\d.]+)s(?:\s+done)?$/;
 const STEP_CACHED = /^#(\d+)\s+CACHED$/;
 const STEP_ERROR = /^#(\d+)\s+ERROR/;
@@ -117,6 +118,8 @@ function parseSteps(output: string): BuildStep[] {
 export interface RunBuildOptions {
   tag: string;
   noCache?: boolean;
+  /** `--build-arg KEY=VALUE` pairs. */
+  buildArgs?: Record<string, string>;
   /** Extra flags, e.g. ["--cache-from", "type=local,src=..."]. */
   extraArgs?: string[];
 }
@@ -132,6 +135,10 @@ export function runBuild(ctx: BuildContext, opts: RunBuildOptions): BuildRun {
     "-f",
     `${ctx.dir}/Dockerfile`,
     ...(opts.noCache ? ["--no-cache"] : []),
+    ...Object.entries(opts.buildArgs ?? {}).flatMap(([k, v]) => [
+      "--build-arg",
+      `${k}=${v}`,
+    ]),
     ...(opts.extraArgs ?? []),
     ctx.dir,
   ];

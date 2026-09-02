@@ -1,0 +1,18 @@
+Experiment 03-run-cache-mount
+
+Environment
+  Docker            29.4.0
+  buildx            v0.33.0 (docker)
+  Node              v24.16.0
+  Platform          darwin/arm64
+  CPU               Apple M3 Pro (12 threads)
+
+RUN layer busted (ARG change), then `npm install --offline`
+
+variant     cold  rebuild --offline  rebuild RUN  image size
+----------  ----  -----------------  -----------  ----------
+plain       ok    exit 1             0s           172.4 MB
+cachemount  ok    ok                 0.7s         171.7 MB
+
+Expect: `plain` --offline fails (npm cache was in the busted layer);
+`cachemount` --offline succeeds (persistent mount). Image sizes equal.

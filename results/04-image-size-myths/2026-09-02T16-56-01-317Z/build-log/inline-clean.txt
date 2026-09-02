@@ -1,0 +1,36 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 120B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/alpine:3
+#2 DONE 0.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/2] FROM docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+#4 resolve docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b 0.0s done
+#4 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/alpine:3@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+#4 CACHED
+
+#5 [2/2] RUN dd if=/dev/zero of=/blob bs=1M count=50 && rm /blob
+#5 0.186 50+0 records in
+#5 0.186 50+0 records out
+#5 0.186 52428800 bytes (50.0MB) copied, 0.023175 seconds, 2.1GB/s
+#5 DONE 0.2s
+
+#6 exporting to image
+#6 exporting layers 0.1s done
+#6 exporting manifest sha256:ed5161a7036ccecacb27aea3e036cda2b09dd0a9aadae13a9272f788b66e1ae8
+#6 exporting manifest sha256:ed5161a7036ccecacb27aea3e036cda2b09dd0a9aadae13a9272f788b66e1ae8 0.0s done
+#6 exporting config sha256:ab814b44a2fb967da37d88a245265b124e0f0880368fd7b6f6d18c135df39f7e 0.0s done
+#6 exporting attestation manifest sha256:94d1b11a2f6055d5940321207361bcca8d19fab7b161cd717017495b6647ad32 0.0s done
+#6 exporting manifest list sha256:29f8b1027d5a35d77026b5e9345d42827a864bad735635328fee838e2c4a76c5 0.0s done
+#6 naming to docker.io/library/dbl-04-inline-clean:run done
+#6 unpacking to docker.io/library/dbl-04-inline-clean:run 0.0s done
+#6 DONE 0.2s

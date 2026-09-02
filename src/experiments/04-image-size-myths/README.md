@@ -32,4 +32,29 @@ of the build toolchain.
 
 ## Results
 
-Design only.
+Docker 29.4.0, buildx 0.33.0, Apple M3 Pro. **Both confirmed.**
+
+### A. Cleanup
+
+| variant | image size | biggest layer |
+| --- | --- | --- |
+| `inline-clean` | 10.3 MB | 10.3 MB, the alpine base (`dd && rm` in one RUN nets 0) |
+| `late-clean` | 62.7 MB | 52.4 MB, `RUN dd … of=/blob` |
+
+`late-clean` is **52.4 MB larger**. The 50 MB blob is committed to the first
+`RUN`'s layer; the later `RUN rm /blob` adds a whiteout layer that hides the file
+and reclaims nothing.
+
+### B. Multi-stage
+
+| variant | image size | biggest layer |
+| --- | --- | --- |
+| `single-stage` | 265.3 MB | 255.0 MB, `RUN apk add build-base` |
+| `multi-stage` | 10.3 MB | 10.3 MB, the alpine base |
+
+`multi-stage` is **255 MB smaller**. `build-base` is installed in a build stage;
+the final image only `COPY --from`s the artifact, so the toolchain never lands in
+it.
+
+Raw: `results/04-image-size-myths/<timestamp>/` (per-variant `docker history` in
+`summary.json`).

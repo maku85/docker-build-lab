@@ -1,0 +1,56 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 231B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.2s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+#3 resolve docker.io/docker/dockerfile:1@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:22-alpine
+#4 DONE 0.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [1/4] FROM docker.io/library/node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32
+#6 resolve docker.io/library/node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 315B done
+#7 DONE 0.0s
+
+#8 [2/4] WORKDIR /app
+#8 CACHED
+
+#9 [3/4] COPY package.json ./
+#9 CACHED
+
+#10 [4/4] RUN sh -c 'echo "bust=$BUST" && npm install --no-audit --no-fund --offline'
+#10 0.148 bust=mtkc6pgo-2
+#10 0.494 npm error code ENOTCACHED
+#10 0.494 npm error request to https://registry.npmjs.org/bytes failed: cache mode is 'only-if-cached' but no cached response is available.
+#10 0.495 npm error A complete log of this run can be found in: /root/.npm/_logs/2026-09-02T16_54_55_549Z-debug-0.log
+#10 ERROR: process "/bin/sh -c sh -c 'echo \"bust=$BUST\" && npm install --no-audit --no-fund --offline'" did not complete successfully: exit code: 1
+------
+ > [4/4] RUN sh -c 'echo "bust=$BUST" && npm install --no-audit --no-fund --offline':
+0.148 bust=mtkc6pgo-2
+0.494 npm error code ENOTCACHED
+0.494 npm error request to https://registry.npmjs.org/bytes failed: cache mode is 'only-if-cached' but no cached response is available.
+0.495 npm error A complete log of this run can be found in: /root/.npm/_logs/2026-09-02T16_54_55_549Z-debug-0.log
+------
+Dockerfile:6
+--------------------
+   4 |     COPY package.json ./
+   5 |     ARG BUST
+   6 | >>> RUN sh -c 'echo "bust=$BUST" && npm install --no-audit --no-fund --offline'
+   7 |     CMD ["node", "-e", "0"]
+   8 |     
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c sh -c 'echo \"bust=$BUST\" && npm install --no-audit --no-fund --offline'" did not complete successfully: exit code: 1

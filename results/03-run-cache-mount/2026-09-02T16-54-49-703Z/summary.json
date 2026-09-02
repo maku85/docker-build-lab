@@ -1,0 +1,32 @@
+{
+  "experiment": "03-run-cache-mount",
+  "runAt": "2026-09-02T16:55:02.073Z",
+  "env": {
+    "dockerVersion": "29.4.0",
+    "buildxVersion": "v0.33.0",
+    "buildkitDriver": "docker",
+    "node": "v24.16.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpuModel": "Apple M3 Pro",
+    "cpuCount": 12,
+    "totalMemGB": 18,
+    "capturedAt": "2026-09-02T16:54:49.701Z"
+  },
+  "results": [
+    {
+      "variant": "plain",
+      "coldExit": 0,
+      "offlineRebuildExit": 1,
+      "runStepDurationS": 0,
+      "imageBytes": 172408200
+    },
+    {
+      "variant": "cachemount",
+      "coldExit": 0,
+      "offlineRebuildExit": 0,
+      "runStepDurationS": 0.7,
+      "imageBytes": 171718200
+    }
+  ]
+}
