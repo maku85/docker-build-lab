@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+
+# generated build contexts (Dockerfile + app files); only what is copied into
+# results/<experiment>/<timestamp>/ is kept
+.contexts-tmp/
+
+# local-only working material, not for the repo
+notes/
+
+# results/ is intentionally committed: published numbers come from real runs.

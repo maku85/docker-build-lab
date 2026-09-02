@@ -1,0 +1,19 @@
+{
+  "name": "docker-build-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A small, reproducible lab for studying the Docker/BuildKit build cache: layer invalidation, cache mounts, image size.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "exp:01": "tsx src/experiments/01-layer-cache-ordering/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "5.6.3"
+  }
+}
